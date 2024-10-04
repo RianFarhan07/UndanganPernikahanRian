@@ -210,6 +210,13 @@ body {
   .home .heart {
     display: none;
   }
+  .simply-section {
+    width: 90px;
+    height: 90px;
+  }
+  .simply-amount {
+    font-size: 2.2rem;
+  }
 }
 
 /* tablet */
@@ -222,11 +229,33 @@ body {
     font-size: 2rem;
     text-align: center;
   }
+  .simply-section {
+    width: 80px;
+    height: 80px;
+    margin: 0 8px 16px;
+  }
+  .simply-amount {
+    font-size: 2rem;
+  }
+  .simply-word {
+    font-size: 0.8rem;
+  }
 }
 
 /* mobile phone */
 @media (max-width: 576px) {
   html {
     font-size: 60%;
+  }
+  .simply-section {
+    width: 70px;
+    height: 70px;
+    margin: 0 6px 12px;
+  }
+  .simply-amount {
+    font-size: 1.8rem;
+  }
+  .simply-word {
+    font-size: 0.7rem;
   }
 }
