@@ -1,0 +1,99 @@
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(240, 165, 0, 0.5), 0 0 10px rgba(240, 165, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(240, 165, 0, 0.8), 0 0 30px rgba(240, 165, 0, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(240, 165, 0, 0.5), 0 0 10px rgba(240, 165, 0, 0.5);
+  }
+}
+
+.simply-countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: "Arial", sans-serif;
+  margin: 2rem auto;
+}
+
+.simply-section {
+  width: 100px;
+  height: 100px;
+  margin: 0 10px 20px;
+  background: linear-gradient(145deg, #f0a500, #ffd700);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(240, 165, 0, 0.2),
+    0 6px 6px rgba(240, 165, 0, 0.1), inset 0 -5px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  animation: glow 2s infinite;
+}
+
+.simply-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(240, 165, 0, 0.3),
+    0 10px 10px rgba(240, 165, 0, 0.2);
+  animation: none;
+}
+
+.simply-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1b1a17;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+    0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.simply-word {
+  font-size: 0.9rem;
+  color: #1b1a17;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .simply-section {
+    width: 90px;
+    height: 90px;
+  }
+  .simply-amount {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .simply-section {
+    width: 80px;
+    height: 80px;
+    margin: 0 8px 16px;
+  }
+  .simply-amount {
+    font-size: 2rem;
+  }
+  .simply-word {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .simply-section {
+    width: 70px;
+    height: 70px;
+    margin: 0 6px 12px;
+  }
+  .simply-amount {
+    font-size: 1.8rem;
+  }
+  .simply-word {
+    font-size: 0.7rem;
+  }
+}
