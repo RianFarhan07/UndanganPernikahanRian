@@ -41,10 +41,10 @@
     >
       <main>
         <h4>Kepada Bapak/Ibu/Saudara/i,</h4>
-        <h1 class="neonText">Rian & Rian</h1>
+        <h1 class="neonText">Shawn & Reni</h1>
         <p>Akan melangsungkan resepsi pernikahan dalam:</p>
         <div class="simply-countdown"></div>
-        <a href="#undangan" class="btn btn-lg" onclick="enableScroll()"
+        <a href="#home" class="btn btn-lg" onclick="enableScroll()"
           >Lihat Undangan</a
         >
       </main>
@@ -111,20 +111,20 @@
           <div class="col-lg-6">
             <div class="row">
               <div class="col-8 text-end">
-                <h3>Rian Farhan</h3>
-                <p>
+                <h3>Shawn Mendes</h3>
+                <!-- <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
                   tenetur nam corporis.
-                </p>
+                </p> -->
                 <p>
-                  Putra dari Bapak Lorem <br />
+                  Putra dari Bapak Manuel Mendes<br />
                   dan <br />
-                  Ibu Ipsum
+                  Ibu Karen Mendes
                 </p>
               </div>
               <div class="col-4">
                 <img
-                  src="img/foto.jpg"
+                  src="img/shawn-removebg-preview.png"
                   alt="rian farhan"
                   class="img-responsive rounded-circle"
                 />
@@ -140,21 +140,21 @@
             <div class="row">
               <div class="col-4">
                 <img
-                  src="img/foto.jpg"
+                  src="img/reni.jpg"
                   alt="Baso Mallanti"
                   class="img-responsive rounded-circle"
                 />
               </div>
               <div class="col-8">
-                <h3>Baso Mallanti</h3>
-                <p>
+                <h3>Syahraeni Ramadhani</h3>
+                <!-- <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
                   tenetur nam corporis.
-                </p>
+                </p> -->
                 <p>
-                  Putra dari Bapak Lorem <br />
+                  Putra dari Bapak Asri <br />
                   dan <br />
-                  Ibu Ipsum
+                  Ibu Suriani, S.Pd
                 </p>
               </div>
             </div>
@@ -526,6 +526,15 @@
       </div>
     </footer>
 
+    <div id="audio-container">
+      <audio id="bgm" autoplay loop>
+        <source src="audio/blue_skies.mp3" type="audio/mp3" />
+      </audio>
+      <div class="audio-icon-wrapper" style="display: none">
+        <i class="bi bi-disc"></i>
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -555,6 +564,25 @@
 
     <!-- menonaktifkan scroll  -->
     <script>
+      disableScroll();
+      const audioIconWrapper = document.querySelector(".audio-icon-wrapper");
+      const audioIcon = document.querySelector(".audio-icon-wrapper i");
+      const bgm = document.querySelector("#bgm");
+      let isPlaying = false;
+
+      audioIconWrapper.onclick = function () {
+        if (isPlaying) {
+          bgm.pause();
+          isPlaying = false;
+          audioIcon.classList.remove("bi-disc");
+          audioIcon.classList.add("bi-pause-circle");
+        } else {
+          bgm.play();
+          isPlaying = true;
+          audioIcon.classList.add("bi-disc");
+          audioIcon.classList.remove("bi-pause-circle");
+        }
+      };
       // Fungsi untuk mencegah default event
       function preventDefault(e) {
         e.preventDefault();
@@ -602,40 +630,33 @@
           preventDefaultForScrollKeys,
           false
         );
+        playAudio();
         document.body.style.overflow = "visible";
         document.documentElement.style.overflow = "visible";
-
-        localStorage.setItem("scrollEnabled", "true");
-
-        // Pindahkan ke bagian undangan
-        const undanganSection = document.querySelector("#undangan");
-        if (undanganSection) {
-          undanganSection.scrollIntoView({ behavior: "smooth" });
-        }
       }
 
-      // Fungsi untuk memeriksa status scrolling dan mengaturnya
-      function checkScrollStatus() {
-        if (localStorage.getItem("scrollEnabled") !== "true") {
-          disableScroll();
+      function playAudio() {
+        bgm.volume = 0.1;
+        audioIconWrapper.style.display = "flex";
+        bgm.play();
+        isPlaying = true;
+      }
+
+      function toggleAudio() {
+        if (bgm.paused) {
+          bgm.play();
+          audioIconWrapper.querySelector("i").classList.remove("bi-pause-fill");
+          audioIconWrapper
+            .querySelector("i")
+            .classList.add("bi-music-note-beamed");
         } else {
-          enableScroll();
+          bgm.pause();
+          audioIconWrapper
+            .querySelector("i")
+            .classList.remove("bi-music-note-beamed");
+          audioIconWrapper.querySelector("i").classList.add("bi-pause-fill");
         }
       }
-
-      // Jalankan pemeriksaan status scrolling saat halaman dimuat
-      document.addEventListener("DOMContentLoaded", function () {
-        checkScrollStatus();
-
-        // Tambahkan event listener ke tombol undangan
-        const undanganButton = document.querySelector('a[href="#undangan"]');
-        if (undanganButton) {
-          undanganButton.addEventListener("click", function (e) {
-            e.preventDefault();
-            enableScroll();
-          });
-        }
-      });
     </script>
 
     <script>
