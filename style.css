@@ -96,7 +96,9 @@ body {
 .home h2,
 .info h2,
 .story h2,
-.gallery h2 {
+.gallery h2,
+.rsvp h2,
+.gifts h2 {
   color: var(--gold);
   font-family: "Sacramento", cursive;
   font-size: 5rem;
@@ -319,6 +321,73 @@ body {
   font-weight: 300;
 }
 
+.rsvp {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  background-color: #0a0a0a;
+}
+
+.rsvp h2 {
+  font-size: 4.5rem;
+}
+
+.rsvp p {
+  color: white;
+}
+
+.rsvp form label {
+  color: white;
+}
+
+.rsvp button {
+  background-color: var(--gold);
+  color: white;
+  border: 1px solid var(--gold);
+}
+
+.rsvp button:hover {
+  background-color: white;
+  color: var(--gold);
+  border: 1px solid var(white);
+}
+
+.gifts {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  background-color: white;
+}
+
+.gifts span {
+  text-transform: uppercase;
+  color: #666;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+footer {
+  padding: 3rem;
+  background-color: var(--gold);
+  color: white;
+}
+
+footer a {
+  color: #0a0a0a;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer li {
+  list-style: none;
+  display: inline;
+  margin: 0.5rem;
+}
+
 /* media Query */
 /* up Extra Large */
 @media (min-width: 1200px) {
@@ -423,5 +492,20 @@ body {
 
   .timeline li .timeline-panel::after {
     top: 31px;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 50%;
+  }
+  .timeline li .timeline-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .timeline li .timeline-panel {
+    width: 6 0%;
+    transform: translateX(-20px);
   }
 }
